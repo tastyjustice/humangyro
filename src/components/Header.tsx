@@ -27,12 +27,12 @@ export function Header() {
     }, []);
 
     // How fast the photo scrolls — increase for faster scroll, decrease for slower
-    const parallaxSpeed = 0.9;
+    const parallaxSpeed = 0.7;
     const bgPositionY = `-${scrollY * parallaxSpeed}px`;
 
   return (
       <header
-          className={`sticky top-0 z-50 ${isHome ? "" : "border-b border-white/10"}`}
+          className={`sticky top-0 z-50 ${isHome ?  "border-b border-white/10 bg-brand-bg/90 backdrop-blur-sm" : "border-b border-white/10"}`}
       >
           {/* Background — photo on inner pages, solid on home */}
           <div
@@ -52,8 +52,9 @@ export function Header() {
               <div className="absolute inset-0 -z-10 bg-black/60" />
           )}
 
-      <nav className="mx-auto flex max-w-6xl items-center justify-center px-6 py-4 md:justify-between">
-        {/* Logo */}
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:justify-between">
+      <div className="w-8 md:hidden" />
+          {/* Logo */}
         <Link
             href="/"
             className="font-display text-2xl tracking-widest text-brand-orange hover:text-brand-orange-light transition-colors md:text-left"
@@ -94,20 +95,20 @@ export function Header() {
           className="flex flex-col gap-1.5 md:hidden"
         >
           <span
-            className={`h-0.5 w-6 bg-brand-white transition-transform ${menuOpen ? "translate-y-2 rotate-45" : ""}`}
+            className={`h-0.5 w-6 bg-brand-teal transition-transform ${menuOpen ? "translate-y-2 rotate-45" : ""}`}
           />
           <span
-            className={`h-0.5 w-6 bg-brand-white transition-opacity ${menuOpen ? "opacity-0" : ""}`}
+            className={`h-0.5 w-6 bg-brand-teal transition-opacity ${menuOpen ? "opacity-0" : ""}`}
           />
           <span
-            className={`h-0.5 w-6 bg-brand-white transition-transform ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`}
+            className={`h-0.5 w-6 bg-brand-teal transition-transform ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`}
           />
         </button>
       </nav>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="border-t border-white/10 px-6 pb-4 md:hidden">
+        <div className="px-6 pb-4 md:hidden">
           <ul className="flex flex-col gap-4 pt-4">
             {navLinks.map((link) => (
               <li key={link.href}>

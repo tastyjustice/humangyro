@@ -31,9 +31,9 @@ export function SectionHeading({
         {heading}
       </h2>
       {subheading && (
-        <p className="mt-2 max-w-xl text-base leading-relaxed text-brand-gray">
-          {subheading}
-        </p>
+          <p className="mt-2 w-full text-base leading-relaxed text-brand-gray md:whitespace-nowrap">
+            {subheading}
+          </p>
       )}
     </div>
   );
