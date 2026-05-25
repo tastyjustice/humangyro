@@ -6,7 +6,7 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          bg: "#f7f5f0",        // warm off-white background
+          bg: "#FFFFFF",        // white background
           white: "#f7f5f0",     // kept as alias so existing classes don't break
           black: "#111111",     // primary text
           orange: "#ff9e2e",    // primary accent
