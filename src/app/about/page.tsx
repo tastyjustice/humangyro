@@ -23,26 +23,26 @@ export default function AboutPage() {
         <p>
           The Human Gyroscope is a full 360° multi-axis ride that simulates the
           sensation of weightlessness. We bring it to events across the Bay
-          Area — from Fortune 500 company picnics to backyard birthday parties.
+          Area, from Fortune 500 company picnics to backyard birthday parties.
         </p>
         <p>
           {/* Replace with your real origin story */}
           Founded by [Your Name], the Human Gyroscope started as a passion
           project and has since become the centerpiece attraction at hundreds
-          of events. Our operators are trained, safety-certified, and
+          of events. Our operators are trained, trained, and
           experienced with riders of all ages.
         </p>
         <p>
           Every rental includes professional setup and teardown, a dedicated
           operator for the duration of your event, and all required safety
-          equipment. We handle everything — you just enjoy the crowd reaction.
+          equipment. We handle everything you just enjoy the crowd reaction.
         </p>
       </div>
 
       {/* Stats strip */}
       <div className="mt-16 grid grid-cols-3 gap-6 border-t border-white/10 pt-12 text-center">
         {[
-          { value: "500+", label: "Events Hosted" },
+          { value: "100+", label: "Events all across the Western USA" },
           { value: "10k+", label: "Riders" },
           { value: "5★", label: "Average Rating" },
         ].map((stat) => (
