@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------------------------------------------------------------
+   Google Fonts — display (headings) + body
+   Bebas Neue: bold, industrial — suits the gyroscope's physical energy
+   DM Sans: clean, readable, modern — good for body copy
+   ------------------------------------------------------------------------- */
+
+:root {
+  --font-display: "Bebas Neue", serif;
+  --font-body: "DM Sans", sans-serif;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+    font-family: var(--font-body);
+  }
+
+  body {
+    @apply bg-brand-bg text-brand-black antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    @apply tracking-wide;
+  }
+}
+
+@layer utilities {
+  /* Pause marquee animation on hover */
+  .marquee-track:hover .marquee-content {
+    animation-play-state: paused;
+  }
+}
+
+.hero-hex {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  width: 60%;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (min-width: 768px) {
+  .hero-hex {
+    clip-path: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+}
