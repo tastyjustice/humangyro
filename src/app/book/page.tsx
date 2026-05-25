@@ -47,6 +47,7 @@ export default function BookPage() {
         eyebrow="Get in touch"
         heading="BOOK THE GYROSCOPE"
         subheading="Fill out the form and we'll get back to you within 24 hours to confirm availability and pricing."
+        centered={true}
       />
 
       {status === "success" ? (

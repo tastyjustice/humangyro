@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { navLinks } from "@/data/nav";
 
 // -----------------------------------------------------------------------------
@@ -14,15 +14,50 @@ import { navLinks } from "@/data/nav";
 // -----------------------------------------------------------------------------
 export function Header() {
   const pathname = usePathname();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const isHome = pathname === "/";
+    const [scrollY, setScrollY] = useState(0);
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    useEffect(() => {
+        function handleScroll() {
+            setScrollY(window.scrollY);
+        }
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    // How fast the photo scrolls — increase for faster scroll, decrease for slower
+    const parallaxSpeed = 0.7;
+    const bgPositionY = `-${scrollY * parallaxSpeed}px`;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-brand-bg/90 backdrop-blur-sm">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        {/* Logo */}
+      <header
+          className={`sticky top-0 z-50 ${isHome ?  "border-b border-white/10 bg-brand-bg/90 backdrop-blur-sm" : "border-b border-white/10"}`}
+      >
+          {/* Background — photo on inner pages, solid on home */}
+          <div
+              className="absolute inset-0 -z-10"
+              style={
+                  isHome
+                      ? {}
+                      : {
+                          backgroundImage: "url('/images/gyroHeader.png')",
+                          backgroundSize: "cover",
+                          backgroundPosition: `center ${bgPositionY}`
+                      }
+              }
+          />
+          {/* Dark overlay for inner pages */}
+          {!isHome && (
+              <div className="absolute inset-0 -z-10 bg-black/60" />
+          )}
+
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:justify-between">
+      <div className="w-8 md:hidden" />
+          {/* Logo */}
         <Link
-          href="/"
-          className="font-display text-2xl tracking-widest text-brand-orange hover:text-brand-orange-light transition-colors"
+            href="/"
+            className="font-display text-2xl tracking-widest text-brand-orange hover:text-brand-orange-light transition-colors md:text-left"
         >
           HUMAN GYROSCOPE
         </Link>
@@ -60,30 +95,30 @@ export function Header() {
           className="flex flex-col gap-1.5 md:hidden"
         >
           <span
-            className={`h-0.5 w-6 bg-brand-white transition-transform ${menuOpen ? "translate-y-2 rotate-45" : ""}`}
+            className={`h-0.5 w-6 bg-brand-teal transition-transform ${menuOpen ? "translate-y-2 rotate-45" : ""}`}
           />
           <span
-            className={`h-0.5 w-6 bg-brand-white transition-opacity ${menuOpen ? "opacity-0" : ""}`}
+            className={`h-0.5 w-6 bg-brand-teal transition-opacity ${menuOpen ? "opacity-0" : ""}`}
           />
           <span
-            className={`h-0.5 w-6 bg-brand-white transition-transform ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`}
+            className={`h-0.5 w-6 bg-brand-teal transition-transform ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`}
           />
         </button>
       </nav>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="border-t border-white/10 px-6 pb-4 md:hidden">
+        <div className="px-6 pb-4 md:hidden">
           <ul className="flex flex-col gap-4 pt-4">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className={`text-sm font-medium tracking-wider uppercase transition-colors hover:text-brand-orange ${
-                    pathname === link.href
-                      ? "text-brand-orange"
-                      : "text-brand-gray-light"
+                  className={`text-sm font-medium tracking-wider uppercase transition-colors hover:text-brand-orange [text-shadow:0_0_1px_rgba(255,255,255,0.8)] ${
+                      pathname === link.href
+                          ? "text-brand-orange"
+                          : "text-brand-teal"
                   }`}
                 >
                   {link.label}
