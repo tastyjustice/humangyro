@@ -93,7 +93,6 @@ Before going live, update these placeholders:
 - [ ] `src/app/page.tsx` — replace `YOUR_VIDEO_ID` with your YouTube video ID
 - [ ] `src/app/book/page.tsx` — replace `YOUR_FORMSPREE_ID` with your Formspree form ID
 - [ ] `src/app/about/page.tsx` — replace placeholder copy with your real story
-- [ ] `src/app/gallery/page.tsx` — add real photos and video IDs
 - [ ] `src/data/reviews.ts` — update with real reviews
 
 ---

@@ -79,12 +79,6 @@ export default function HomePage() {
           >
             Book for Your Event
           </Link>
-          <Link
-              href="/gallery"
-              className="rounded border border-white/40 px-8 py-3 text-sm font-medium tracking-wider uppercase text-white transition-colors hover:border-white/70"
-          >
-            See It in Action
-          </Link>
         </div>
       </section>
 
@@ -111,7 +105,6 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="What people say"
           heading="CROWD APPROVED"
-          subheading="Don't just take our word for it."
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {reviews.map((review) => (
