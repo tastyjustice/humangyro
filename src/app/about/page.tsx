@@ -26,11 +26,8 @@ export default function AboutPage() {
           Area, from Fortune 500 company picnics to backyard birthday parties.
         </p>
         <p>
-          {/* Replace with your real origin story */}
-          Founded by [Your Name], the Human Gyroscope started as a passion
-          project and has since become the centerpiece attraction at hundreds
-          of events. Our operators are trained, trained, and
-          experienced with riders of all ages.
+          The Human Gyroscope started as a fun ride to bring to Burning Man and has since become the centerpiece attraction at hundreds
+          of events. Our operators are trained, trained, and experienced with riders of all ages.
         </p>
         <p>
           Every rental includes professional setup and teardown, a dedicated

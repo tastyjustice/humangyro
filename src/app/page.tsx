@@ -22,7 +22,7 @@ const bannerItems = [
   "HEART-POUNDING",
   "360° ROTATION",
   "BOOK YOUR EVENT",
-  "THE CROWD PLEASER",
+  "FUN FOR ALL AGES",
   "BAY AREA",
 ];
 
@@ -79,12 +79,6 @@ export default function HomePage() {
           >
             Book for Your Event
           </Link>
-          <Link
-              href="/gallery"
-              className="rounded border border-white/40 px-8 py-3 text-sm font-medium tracking-wider uppercase text-white transition-colors hover:border-white/70"
-          >
-            See It in Action
-          </Link>
         </div>
       </section>
 
@@ -104,14 +98,19 @@ export default function HomePage() {
                   title="Human Gyroscope in action at a live event"
               />
           </div>
+            <div className="px-6 py-24">
+                <VideoEmbed
+                    src="/videos/night2xspeed.mp4"
+                    title="Human Gyroscope in action after dark"
+                />
+            </div>
       </section>
 
       {/* ── 4. Reviews ──────────────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-6 py-24">
         <SectionHeading
-          eyebrow="What people say"
+          eyebrow="Real Reviews"
           heading="CROWD APPROVED"
-          subheading="Don't just take our word for it."
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {reviews.map((review) => (
