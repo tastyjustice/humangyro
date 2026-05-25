@@ -1,22 +1,13 @@
 "use client";
 
-import type { Metadata } from "next";
 import { useState } from "react";
 import { SectionHeading } from "@/components/SectionHeading";
 
 // -----------------------------------------------------------------------------
 // Book page
 //
-// Uses Formspree for form submission — no backend needed.
-// Setup:
-//   1. Create a free account at https://formspree.io
-//   2. Create a new form and copy the form ID
-//   3. Replace YOUR_FORMSPREE_ID below with that ID
-//
-// Formspree emails you the submission and handles spam filtering.
 // -----------------------------------------------------------------------------
-
-const FORMSPREE_ID = "mqejkkzj";
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY!;
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
@@ -28,16 +19,18 @@ export default function BookPage() {
     setStatus("submitting");
 
     const form = e.currentTarget;
-    const data = new FormData(form);
+    const formData = new FormData(form);
+    formData.append("access_key", WEB3FORMS_KEY);
 
     try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
+        body: formData,
       });
 
-      if (res.ok) {
+      const data = await response.json();
+
+      if (data.success) {
         setStatus("success");
         form.reset();
       } else {
@@ -92,6 +85,20 @@ export default function BookPage() {
               required
               className="w-full rounded border border-white/10 bg-white/5 px-4 py-3 text-sm text-brand-black placeholder-brand-gray outline-none transition-colors focus:border-brand-orange"
               placeholder="jane@example.com"
+            />
+          </div>
+
+          {/* Phone number */}
+          <div>
+            <label htmlFor="phone" className="mb-2 block text-xs tracking-widest uppercase text-brand-gray">
+              Phone number
+            </label>
+            <input
+                id="phone"
+                name="phone"
+                type="tel"
+                className="w-full rounded border border-white/10 bg-white/5 px-4 py-3 text-sm text-brand-white placeholder-brand-gray outline-none transition-colors focus:border-brand-orange"
+                placeholder="(415) 555-0123"
             />
           </div>
 
@@ -162,7 +169,7 @@ export default function BookPage() {
 
           {status === "error" && (
             <p className="text-sm text-red-400">
-              Something went wrong. Please try again or email us directly.
+              Something went wrong. Please try again or email us directly at info@humangyro.com
             </p>
           )}
 
