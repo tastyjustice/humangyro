@@ -22,7 +22,7 @@ const bannerItems = [
   "HEART-POUNDING",
   "360° ROTATION",
   "BOOK YOUR EVENT",
-  "THE CROWD PLEASER",
+  "FUN FOR ALL AGES",
   "BAY AREA",
 ];
 
@@ -98,12 +98,18 @@ export default function HomePage() {
                   title="Human Gyroscope in action at a live event"
               />
           </div>
+            <div className="px-6 py-24">
+                <VideoEmbed
+                    src="/videos/night2xspeed.mp4"
+                    title="Human Gyroscope in action after dark"
+                />
+            </div>
       </section>
 
       {/* ── 4. Reviews ──────────────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-6 py-24">
         <SectionHeading
-          eyebrow="What people say"
+          eyebrow="Real Reviews"
           heading="CROWD APPROVED"
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

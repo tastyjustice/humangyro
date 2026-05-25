@@ -27,8 +27,7 @@ export default function AboutPage() {
         </p>
         <p>
           {/* Replace with your real origin story */}
-          Founded by [Your Name], the Human Gyroscope started as a passion
-          project and has since become the centerpiece attraction at hundreds
+          The Human Gyroscope started as a fun ride to bring to Burning Man and has since become the centerpiece attraction at hundreds
           of events. Our operators are trained, safety-certified, and
           experienced with riders of all ages.
         </p>
@@ -37,22 +36,6 @@ export default function AboutPage() {
           operator for the duration of your event, and all required safety
           equipment. We handle everything — you just enjoy the crowd reaction.
         </p>
-      </div>
-
-      {/* Stats strip */}
-      <div className="mt-16 grid grid-cols-3 gap-6 border-t border-white/10 pt-12 text-center">
-        {[
-          { value: "500+", label: "Events Hosted" },
-          { value: "10k+", label: "Riders" },
-          { value: "5★", label: "Average Rating" },
-        ].map((stat) => (
-          <div key={stat.label}>
-            <p className="font-display text-4xl text-brand-orange">{stat.value}</p>
-            <p className="mt-1 text-xs tracking-widest uppercase text-brand-gray">
-              {stat.label}
-            </p>
-          </div>
-        ))}
       </div>
     </div>
   );
