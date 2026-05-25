@@ -7,8 +7,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 // Book page
 //
 // -----------------------------------------------------------------------------
-
-const WEB3FORMS_KEY = "b269396e-4528-49ac-80ec-d77dfec2abfd";
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY!;
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
